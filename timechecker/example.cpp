@@ -1,14 +1,16 @@
 #include"nlibtimechecker.h"
 
-using nlib::timechecker::startTimer;
-using nlib::timechecker::endTimer;
+using nlib::timechecker::TimeChecker;
 
 int main(){
-	startTimer();
+	//call start function to begin timer
+	TimeChecker tc;
+	tc.start();
 	int i=100000;
 	while(i--){
 		;
 	}
-	endTimer();
+	//call end function to end timer
+	tc.end();
 	return 0;
 }
