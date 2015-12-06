@@ -6,10 +6,9 @@
 namespace nlib{
 	namespace vector{
 
+		//declare of class Vector
 		template<class T>
 		class Vector{
-
-
 			public:
 				Vector(unsigned int size=0);
 				~Vector();
@@ -21,22 +20,26 @@ namespace nlib{
 				void resize();
 				unsigned int size;
 				unsigned int capability;
-				static unsigned int init_size;
-				static unsigned int step;
+				const static unsigned int init_size;
+				const static unsigned int step;
 				T *ptr;
 		};
 
+		//parement of init_size
 		template<class T>
-		unsigned int Vector<T>::init_size = 15;
+		const unsigned int Vector<T>::init_size = 15;
 
+		//parement of step
 		template<class T>
-		unsigned int Vector<T>::step = 2;
+		const unsigned int Vector<T>::step = 2;
 
+		//return size of vector
 		template<class T>
 		unsigned int Vector<T>::count(){
 			return size;
 		}
 
+		//construct function
 		template<class T>
 		Vector<T>::Vector(unsigned int size){
 			this->size = size;
@@ -47,11 +50,13 @@ namespace nlib{
 			ptr = new T[capability];
 		}
 
+		//destruct function
 		template<class T>
 		Vector<T>::~Vector(){
 			delete[] ptr;
 		}
 
+		//backPush
 		template<class T>
 		void Vector<T>::backPush(const T &value){
 			size++;
@@ -62,25 +67,24 @@ namespace nlib{
 			ptr[size-1] = value;
 		}
 
+		//backPop
 		template<class T>
 		T Vector<T>::backPop(){
-			//if vector is empty,we can't return. it may throw error, but i don't like error 
-			//so i just return vevtor[0], hope no code will do this stupid thing to pop a empty vector :(
-			if(size==0)
-				size++;
+			//in order to improve performance, i don't consider about situation when vector is empty
+			//code should not call this function when vector is empty!!
 			size--;
 			return ptr[size];
 		}
 
+		//operator[]
 		template<class T>
 		T& Vector<T>::operator[](const unsigned int index){
-			if(index<=size-1)
-				return ptr[index];
-			else
-				//if index is out of range,return first element
-				return ptr[0];
+			//code should not call this function with a wrong parament which is out of range
+			//so programer should be careful and niuful :)
+			return ptr[index];
 		}
 
+		//resize function to expand space
 		template<class T>
 		void Vector<T>::resize(){
 			T *temp_ptr = new T[capability];
