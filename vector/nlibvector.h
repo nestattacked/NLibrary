@@ -6,7 +6,6 @@
 namespace nlib{
 	namespace vector{
 
-		//declare of class Vector
 		template<class T>
 		class Vector{
 			public:
@@ -25,21 +24,17 @@ namespace nlib{
 				T *ptr;
 		};
 
-		//parement of init_size
 		template<class T>
 		const unsigned int Vector<T>::init_size = 15;
 
-		//parement of step
 		template<class T>
 		const unsigned int Vector<T>::step = 2;
 
-		//return size of vector
 		template<class T>
 		unsigned int Vector<T>::count(){
 			return size;
 		}
 
-		//construct function
 		template<class T>
 		Vector<T>::Vector(unsigned int size){
 			this->size = size;
@@ -50,13 +45,11 @@ namespace nlib{
 			ptr = new T[capability];
 		}
 
-		//destruct function
 		template<class T>
 		Vector<T>::~Vector(){
 			delete[] ptr;
 		}
 
-		//backPush
 		template<class T>
 		void Vector<T>::backPush(const T &value){
 			size++;
@@ -67,7 +60,6 @@ namespace nlib{
 			ptr[size-1] = value;
 		}
 
-		//backPop
 		template<class T>
 		T Vector<T>::backPop(){
 			//in order to improve performance, i don't consider about situation when vector is empty
@@ -76,7 +68,6 @@ namespace nlib{
 			return ptr[size];
 		}
 
-		//operator[]
 		template<class T>
 		T& Vector<T>::operator[](const unsigned int index){
 			//code should not call this function with a wrong parament which is out of range
@@ -84,7 +75,6 @@ namespace nlib{
 			return ptr[index];
 		}
 
-		//resize function to expand space
 		template<class T>
 		void Vector<T>::resize(){
 			T *temp_ptr = new T[capability];
