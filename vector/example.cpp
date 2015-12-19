@@ -1,3 +1,4 @@
+#define _DEBUG_
 #include"nlibvector.h"
 #include<iostream>
 
@@ -6,14 +7,14 @@ using std::endl;
 using nlib::vector::Vector;
 
 int main(){
-	Vector<int> v(100);
+	Vector<int> v;
 	for(unsigned int i=0;i<100;i++)
-		v[i]=(int)(i+1);
+		v.backPush(i+1);
 	cout<<"pop vector: "<<v.backPop()<<endl;
 	cout<<"push vector with 999 ..."<<endl;
 	v.backPush(999);
 	cout<<"pop vector: "<<v.backPop()<<endl;
 	cout<<"89th element: "<<v[88]<<endl;
-	cout<<"size of vector: "<<v.count()<<endl;
+	cout<<"size of vector: "<<v.size()<<endl;
 	return 0;
 }
