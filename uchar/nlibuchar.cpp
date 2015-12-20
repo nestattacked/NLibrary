@@ -7,8 +7,8 @@
 namespace nlib{
 	namespace uchar{
 
-		int UChar::headCount(char head){
-			int count = 0;
+		unsigned int UChar::headCount(char head){
+			unsigned int count = 0;
 			while(head&-128){
 				count++;
 				head<<=1;

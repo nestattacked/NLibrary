@@ -6,6 +6,7 @@
 #endif
 
 #include<cstring>
+#include<cstdlib>
 
 namespace nlib{
 	namespace vector{
@@ -13,7 +14,7 @@ namespace nlib{
 		template<class T>
 		class Vector{
 			public:
-				Vector(unsigned int size=0);
+				Vector();
 				~Vector();
 				void backPush(const T &value);
 				T backPop();
@@ -40,18 +41,15 @@ namespace nlib{
 		}
 
 		template<class T>
-		Vector<T>::Vector(unsigned int size){
-			used_size = size;
+		Vector<T>::Vector(){
+			used_size = 0;
 			capability = init_size;
-			while(capability<used_size){
-				capability = capability*step+1;
-			}
-			ptr = new T[capability];
+			ptr = (T*)malloc(sizeof(T)*capability);
 		}
 
 		template<class T>
 		Vector<T>::~Vector(){
-			delete[] ptr;
+			free(ptr);
 		}
 
 		template<class T>
@@ -89,9 +87,9 @@ namespace nlib{
 
 		template<class T>
 		void Vector<T>::resize(){
-			T *temp_ptr = new T[capability];
+			T *temp_ptr = (T*)malloc(sizeof(T)*capability);
 			std::memcpy(temp_ptr,ptr,sizeof(T)*(used_size-1));
-			delete[] ptr;
+			free(ptr);
 			ptr = temp_ptr;
 		}
 

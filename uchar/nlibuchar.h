@@ -8,9 +8,9 @@ namespace nlib{
 			public:
 				UChar(const char *ptr);
 				int isLetter();
-				char buffer[2];
+				static unsigned int headCount(char head);
 			private:
-				int headCount(char head);
+				char buffer[2];
 		};
 		
 	}
