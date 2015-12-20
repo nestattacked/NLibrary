@@ -1,4 +1,3 @@
-#define _DEBUG_
 #include"nlibvector.h"
 #include<iostream>
 

@@ -1,6 +1,10 @@
 #ifndef _NLIBHEAP_
 #define _NLIBHEAP_
 
+#ifdef _DEBUG_
+#include<iostream>
+#endif
+
 #include"../vector/nlibvector.h"
 #include"../base/nlibbase.h"
 
@@ -35,6 +39,10 @@ namespace nlib{
 		//should not call when it's empty
 		template<class T>
 		T Heap<T>::get(){
+			#ifdef _DEBUG_
+			if(heaps.size() == 0)
+				std::cerr<<"warm: Heap::get is called when it's empty!"<<std::endl;
+			#endif
 			T temp = heaps[0];
 			heaps[0] = heaps.backPop();
 			if(type == Max)
@@ -56,7 +64,7 @@ namespace nlib{
 		template<class T>
 		void Heap<T>::maxDown(){
 			unsigned int maxest,size,left,right,present=0;
-			size = heaps.count();
+			size = heaps.size();
 			while(1){
 				left = getLeftChild(present);
 				right = getRightChild(present);
@@ -91,7 +99,7 @@ namespace nlib{
 		template<class T>
 		void Heap<T>::minDown(){
 			unsigned int minest,size,left,right,present=0;
-			size = heaps.count();
+			size = heaps.size();
 			while(1){
 				left = getLeftChild(present);
 				right = getRightChild(present);
@@ -125,7 +133,7 @@ namespace nlib{
 
 		template<class T>
 		void Heap<T>::maxUp(){
-			unsigned int index = heaps.count()-1;
+			unsigned int index = heaps.size()-1;
 			while(index!=0){
 				unsigned int parent_index = getParent(index);
 				if(heaps[index]>heaps[parent_index]){
@@ -139,7 +147,7 @@ namespace nlib{
 
 		template<class T>
 		void Heap<T>::minUp(){
-			unsigned int index = heaps.count()-1;
+			unsigned int index = heaps.size()-1;
 			while(index!=0){
 				unsigned int parent_index = getParent(index);
 				if(heaps[index]<heaps[parent_index]){

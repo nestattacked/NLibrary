@@ -17,7 +17,7 @@ namespace nlib{
 				~Vector();
 				void backPush(const T &value);
 				T backPop();
-				const T& operator[](unsigned int index);
+				T& operator[](unsigned int index);
 				unsigned int size();
 			private:
 				void resize();
@@ -77,7 +77,7 @@ namespace nlib{
 		}
 
 		template<class T>
-		const T& Vector<T>::operator[](unsigned int index){
+		T& Vector<T>::operator[](unsigned int index){
 			//code should not call this function with a wrong parament which is out of range
 			//so programer should be careful and niuful :)
 			#ifdef _DEBUG_
