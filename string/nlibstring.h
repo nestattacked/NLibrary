@@ -7,7 +7,7 @@
 namespace nlib{
 	namespace string{
 
-		//only support utf-8 encoding
+		//construction function parament have to be utf-8 encoding
 		//store in unicode, two bytes for each character
 		class String{
 			public:
