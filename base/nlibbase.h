@@ -24,6 +24,15 @@ namespace nlib{
 			return v1>v2?v2:v1;
 		}
 
+		template<class T>
+		void reverse(T *begin, T *end){
+			while(begin<end){
+				swap(*begin,*end);
+				begin++;
+				end--;
+			}
+		}
+
 	}
 }
 

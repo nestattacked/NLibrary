@@ -6,11 +6,16 @@ using std::endl;
 using nlib::base::swap;
 using nlib::base::max;
 using nlib::base::min;
+using nlib::base::reverse;
 
 int main(){
 	int values[3]={0,1,2};
 
 	cout<<"origin values:"<<endl;
+	cout<<values[0]<<' '<<values[1]<<' '<<values[2]<<endl;
+
+	reverse(values,values+2);
+	cout<<"values after reverse:"<<endl;
 	cout<<values[0]<<' '<<values[1]<<' '<<values[2]<<endl;
 
 	swap(values[0],values[1]);
