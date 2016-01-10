@@ -1,4 +1,4 @@
-#include<string>
+#include<string.h>
 #include"nlibenigma.h"
 
 namespace nlib{
@@ -33,12 +33,13 @@ namespace nlib{
 			setReflectorType(0);
 		}
 
-		std::string Enigma::decode(const std::string &str){
-			std::string res;
-			for(int i=0;i<str.size();i++){
-				res+=pressKey(str[i]);
+		void Enigma::decode(const char *str,char *dst){
+			unsigned int length = strlen(str);
+			int i = 0;
+			for(;i<length;i++){
+				dst[i] = pressKey(str[i]);
 			}
-			return res;
+			dst[i]='\0';
 		}
 
 		void Enigma::clearPlugSettings(){

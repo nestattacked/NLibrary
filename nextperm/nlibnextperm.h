@@ -2,7 +2,7 @@
 #define _NLIBNEXTPERM_
 
 #ifdef _DEBUG_
-#include<iostream>
+#include<stdio.h>
 #endif
 
 #include"../base/nlibbase.h"

@@ -1,19 +1,16 @@
 #include"nlibnextperm.h"
-#include<iostream>
+#include<stdio.h>
 
-using std::cout;
-using std::endl;
 using nlib::nextperm::next_perm;
 
 int main(){
 	int values[4] = {0,1,2,3};
 
-	cout<<"origin values:"<<endl;
-	cout<<values[0]<<' '<<values[1]<<' '<<values[2]<<' '<<values[3]<<endl;
+	printf("origin values:\n%d %d %d %d\n",values[0],values[1],values[2],values[3]);
 
-	cout<<"all permutation:"<<endl;
+	printf("all permutation:\n");
 	do{
-		cout<<values[0]<<' '<<values[1]<<' '<<values[2]<<' '<<values[3]<<endl;
+		printf("%d %d %d %d\n",values[0],values[1],values[2],values[3]);
 	}while(next_perm(values,values+3));
 	return 0;
 }

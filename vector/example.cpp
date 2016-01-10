@@ -1,19 +1,17 @@
 #include"nlibvector.h"
-#include<iostream>
+#include<stdio.h>
 
-using std::cout;
-using std::endl;
 using nlib::vector::Vector;
 
 int main(){
 	Vector<int> v;
 	for(unsigned int i=0;i<100;i++)
 		v.backPush(i+1);
-	cout<<"pop vector: "<<v.backPop()<<endl;
-	cout<<"push vector with 999 ..."<<endl;
+	printf("pop vector: %d\n",v.backPop());
+	printf("push vector with 999 ...\n");
 	v.backPush(999);
-	cout<<"pop vector: "<<v.backPop()<<endl;
-	cout<<"89th element: "<<v[88]<<endl;
-	cout<<"size of vector: "<<v.size()<<endl;
+	printf("pop vector: %d\n",v.backPop());
+	printf("89th element: %d\n",v[88]);
+	printf("size of vector: %d\n",v.size());
 	return 0;
 }

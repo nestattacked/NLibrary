@@ -1,14 +1,18 @@
-#include<iostream>
 #include"nlibenigma.h"
+#include<stdio.h>
 
-using std::cout;
-using std::endl;
 using nlib::enigma::Enigma;
 
 int main(){
 	Enigma m;
 	m.setSinglePlug('a','e');
-	cout<<m.pressKey('a')<<endl;
-	cout<<m.decode("helloworld")<<endl;//no space, only letter
+
+	printf("result when pressKay A: %c\n",m.pressKey('a'));
+
+	char res[20];
+	m.decode("helloworld",res);
+
+	printf("result when decode helloworld: %s\n",res);
+
 	return 0;
 }

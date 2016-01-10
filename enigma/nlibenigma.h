@@ -1,8 +1,6 @@
 #ifndef _NLIBENIGMA_
 #define _NLIBENIGMA_
 
-#include<string>
-
 namespace nlib{
 	namespace enigma{
 		class Enigma{
@@ -16,7 +14,7 @@ namespace nlib{
 			void setReflectorType(int type);
 			void turnRotor();
 			void turnRotorBack();
-			std::string decode(const std::string &str);
+			void decode(const char *str, char *dst);
 			char pressKey(char letter);
 		private:
 			static int r_rotor[5][26];

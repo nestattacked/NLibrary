@@ -2,11 +2,11 @@
 #define _NLIBVECTOR_
 
 #ifdef _DEBUG_
-#include<iostream>
+#include<stdio.h>
 #endif
 
-#include<cstring>
-#include<cstdlib>
+#include<string.h>
+#include<stdlib.h>
 
 namespace nlib{
 	namespace vector{
@@ -68,7 +68,7 @@ namespace nlib{
 			//code should not call this function when vector is empty!!
 			#ifdef _DEBUG_
 			if(used_size == 0)
-				std::cerr<<"warm: vector::backPop is called when vector is empty!"<<std::endl;
+				printf("warm: vector::backPop is called when vector is empty!\n");
 			#endif
 			used_size--;
 			return ptr[used_size];
@@ -80,7 +80,7 @@ namespace nlib{
 			//so programer should be careful and niuful :)
 			#ifdef _DEBUG_
 			if(index<0 || index>used_size-1)
-				std::cerr<<"warm: vector::operator[] is called but index is out of range!"<<std::endl;
+				printf("warm: vector::operator[] is called but index is out of range!\n");
 			#endif
 			return ptr[index];
 		}
@@ -88,7 +88,7 @@ namespace nlib{
 		template<class T>
 		void Vector<T>::resize(){
 			T *temp_ptr = (T*)malloc(sizeof(T)*capability);
-			std::memcpy(temp_ptr,ptr,sizeof(T)*(used_size-1));
+			memcpy(temp_ptr,ptr,sizeof(T)*(used_size-1));
 			free(ptr);
 			ptr = temp_ptr;
 		}

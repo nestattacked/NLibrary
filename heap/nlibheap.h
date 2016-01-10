@@ -2,7 +2,7 @@
 #define _NLIBHEAP_
 
 #ifdef _DEBUG_
-#include<iostream>
+#include<stdio.h>
 #endif
 
 #include"../vector/nlibvector.h"
@@ -41,7 +41,7 @@ namespace nlib{
 		T Heap<T>::get(){
 			#ifdef _DEBUG_
 			if(heaps.size() == 0)
-				std::cerr<<"warm: Heap::get is called when it's empty!"<<std::endl;
+				printf("warm: Heap::get is called when it's empty!\n");
 			#endif
 			T temp = heaps[0];
 			heaps[0] = heaps.backPop();

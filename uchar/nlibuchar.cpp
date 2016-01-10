@@ -1,7 +1,7 @@
 #include"nlibuchar.h"
 
 #ifdef _DEBUG_
-#include<iostream>
+#include<stdio.h>
 #endif
 
 namespace nlib{
@@ -32,7 +32,7 @@ namespace nlib{
 					break;
 				default:
 					#ifdef _DEBUG_
-					std::cerr<<"warm: wrong utf-8 format is pass into UChar::UChar!"<<std::endl;
+					printf("warm: wrong utf-8 format is pass into UChar::UChar!\n");
 					#endif
 					;
 			}

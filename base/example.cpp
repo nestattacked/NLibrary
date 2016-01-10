@@ -1,8 +1,6 @@
-#include<iostream>
 #include"nlibbase.h"
+#include<stdio.h>
 
-using std::cout;
-using std::endl;
 using nlib::base::swap;
 using nlib::base::max;
 using nlib::base::min;
@@ -11,20 +9,17 @@ using nlib::base::reverse;
 int main(){
 	int values[3]={0,1,2};
 
-	cout<<"origin values:"<<endl;
-	cout<<values[0]<<' '<<values[1]<<' '<<values[2]<<endl;
+	printf("origin values:\n%d %d %d\n",values[0],values[1],values[2]);
 
 	reverse(values,values+2);
-	cout<<"values after reverse:"<<endl;
-	cout<<values[0]<<' '<<values[1]<<' '<<values[2]<<endl;
+	printf("values after reverse:\n%d %d %d\n",values[0],values[1],values[2]);
 
 	swap(values[0],values[1]);
-	cout<<"values after swap 0 with 1:"<<endl;
-	cout<<values[0]<<' '<<values[1]<<' '<<values[2]<<endl;
+	printf("values after swap 0 with 1:\n%d %d %d\n",values[0],values[1],values[2]);
 
-	cout<<"max of 0 and 1:"<<endl;
-	cout<<max(values[0],values[1])<<endl;
+	printf("max of 0 and 1:\n%d\n",max(values[0],values[1]));
 
-	cout<<"min of 1 and 2:"<<endl;
-	cout<<min(values[2],values[1])<<endl;
+	printf("min of 1 and 2:\n%d\n",min(values[2],values[1]));
+
+	return 0;
 }

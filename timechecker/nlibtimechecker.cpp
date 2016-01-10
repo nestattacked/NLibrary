@@ -1,7 +1,6 @@
-#include<iostream>
-#include<iomanip>
 #include<sys/resource.h>
 #include"nlibtimechecker.h"
+#include<stdio.h>
 
 namespace nlib{
 	namespace timechecker{
@@ -18,10 +17,7 @@ namespace nlib{
 			long usec = end_rup.ru_utime.tv_usec + end_rup.ru_stime.tv_usec - start_rup.ru_utime.tv_usec - start_rup.ru_stime.tv_usec;
 			sec += (usec/1000000);
 			usec %= 1000000;
-			std::cout<<"cost time: "<<sec<<'.'<<std::setfill('0')<<std::setw(6)<<usec<<'s'<<std::endl;
-
-			//clear the settings of cout
-			std::cout<<std::setfill(' ')<<std::setw(0);
+			printf("cost time: %ld.%6.6lds\n",sec,usec);
 		}
 
 	}
