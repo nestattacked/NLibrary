@@ -12,6 +12,6 @@ int main(){
 	v.backPush(999);
 	printf("pop vector: %d\n",v.backPop());
 	printf("89th element: %d\n",v[88]);
-	printf("size of vector: %d\n",v.size());
+	printf("size of vector: %lu\n",v.size());
 	return 0;
 }

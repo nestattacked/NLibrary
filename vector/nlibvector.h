@@ -18,25 +18,25 @@ namespace nlib{
 				~Vector();
 				void backPush(const T &value);
 				T backPop();
-				T& operator[](unsigned int index);
-				unsigned int size();
+				T& operator[](size_t index);
+				size_t size();
 			private:
 				void resize();
-				unsigned int used_size;
-				unsigned int capability;
-				const static unsigned int init_size;
-				const static unsigned int step;
+				size_t used_size;
+				size_t capability;
+				const static size_t init_size;
+				const static size_t step;
 				T *ptr;
 		};
 
 		template<class T>
-		const unsigned int Vector<T>::init_size = 15;
+		const size_t Vector<T>::init_size = 15;
 
 		template<class T>
-		const unsigned int Vector<T>::step = 2;
+		const size_t Vector<T>::step = 2;
 
 		template<class T>
-		unsigned int Vector<T>::size(){
+		size_t Vector<T>::size(){
 			return used_size;
 		}
 
@@ -75,11 +75,11 @@ namespace nlib{
 		}
 
 		template<class T>
-		T& Vector<T>::operator[](unsigned int index){
+		T& Vector<T>::operator[](size_t index){
 			//code should not call this function with a wrong parament which is out of range
 			//so programer should be careful and niuful :)
 			#ifdef _DEBUG_
-			if(index<0 || index>used_size-1)
+			if(index>used_size-1)
 				printf("warm: vector::operator[] is called but index is out of range!\n");
 			#endif
 			return ptr[index];

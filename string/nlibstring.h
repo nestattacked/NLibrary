@@ -12,7 +12,7 @@ namespace nlib{
 		class String{
 			public:
 				String(const char *ptr);
-				unsigned int size();
+				size_t size();
 			private:
 				nlib::vector::Vector<nlib::uchar::UChar> buffer;
 		};

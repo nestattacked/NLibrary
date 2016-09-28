@@ -9,6 +9,6 @@ int main(){
 	printf("test 你: %d\n",char1.isLetter());
 	printf("test a: %d\n",char2.isLetter());
 	const char *ptr = "你";
-	printf("static function headCount test: %d\n",UChar::headCount(ptr[0]));
+	printf("static function headCount test: %lu\n",UChar::headCount(ptr[0]));
 	return 0;
 }

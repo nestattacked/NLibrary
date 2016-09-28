@@ -4,6 +4,6 @@
 int main(){
 	const char *ptr = "有一个单词叫做cool。";
 	nlib::string::String sentence(ptr);
-	printf("%d\n",sentence.size());
+	printf("%lu\n",sentence.size());
 	return 0;
 }

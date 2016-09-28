@@ -1,1 +1,26 @@
 1._DEBUG_ can be used to test program and at the same time we can make program efficient, so remember to use it.
+
+how to organize our library?
+project/app.cpp
+project/nlib/lib-name/lib-files
+
+how to use?
+in app.cpp:
+#include "nlib/lib-name/lib-head-file.h"
+
+nlib::lib-name::function(argument);
+
+and what else?
+we need a tool to generate a makefile and download lib files from server.
+
+how to give a name?
+function:
+doSomething()
+value:
+type_of_value
+class:
+CarWheel
+
+what's the rule of library?
+使用c标准库而不是c++的
+之所以采用c++语言是因为我们需要c++的类、模板等机制

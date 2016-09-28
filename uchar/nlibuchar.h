@@ -1,6 +1,8 @@
 #ifndef _NLIBUCHAR_
 #define _NLIBUCHAR_
 
+#include<stdlib.h>
+
 namespace nlib{
 	namespace uchar{
 
@@ -8,7 +10,7 @@ namespace nlib{
 			public:
 				UChar(const char *ptr);
 				int isLetter();
-				static unsigned int headCount(char head);
+				static size_t headCount(char head);
 			private:
 				char buffer[2];
 		};

@@ -26,9 +26,9 @@ namespace nlib{
 				void minDown();
 				void maxUp();
 				void minUp();
-				unsigned int getLeftChild(unsigned int index);
-				unsigned int getRightChild(unsigned int index);
-				unsigned int getParent(unsigned int index);
+				size_t getLeftChild(size_t index);
+				size_t getRightChild(size_t index);
+				size_t getParent(size_t index);
 		};
 
 		template<class T>
@@ -63,7 +63,7 @@ namespace nlib{
 
 		template<class T>
 		void Heap<T>::maxDown(){
-			unsigned int maxest,size,left,right,present=0;
+			size_t maxest,size,left,right,present=0;
 			size = heaps.size();
 			while(1){
 				left = getLeftChild(present);
@@ -98,7 +98,7 @@ namespace nlib{
 
 		template<class T>
 		void Heap<T>::minDown(){
-			unsigned int minest,size,left,right,present=0;
+			size_t minest,size,left,right,present=0;
 			size = heaps.size();
 			while(1){
 				left = getLeftChild(present);
@@ -133,9 +133,9 @@ namespace nlib{
 
 		template<class T>
 		void Heap<T>::maxUp(){
-			unsigned int index = heaps.size()-1;
+			size_t index = heaps.size()-1;
 			while(index!=0){
-				unsigned int parent_index = getParent(index);
+				size_t parent_index = getParent(index);
 				if(heaps[index]>heaps[parent_index]){
 					nlib::base::swap(heaps[index],heaps[parent_index]);
 					index = parent_index;
@@ -147,9 +147,9 @@ namespace nlib{
 
 		template<class T>
 		void Heap<T>::minUp(){
-			unsigned int index = heaps.size()-1;
+			size_t index = heaps.size()-1;
 			while(index!=0){
-				unsigned int parent_index = getParent(index);
+				size_t parent_index = getParent(index);
 				if(heaps[index]<heaps[parent_index]){
 					nlib::base::swap(heaps[index],heaps[parent_index]);
 					index = parent_index;
@@ -160,17 +160,17 @@ namespace nlib{
 		}
 
 		template<class T>
-		unsigned int Heap<T>::getRightChild(unsigned int index){
+		size_t Heap<T>::getRightChild(size_t index){
 			return index*2+1;
 		}
 
 		template<class T>
-		unsigned int Heap<T>::getLeftChild(unsigned int index){
+		size_t Heap<T>::getLeftChild(size_t index){
 			return index*2+2;
 		}
 
 		template<class T>
-		unsigned int Heap<T>::getParent(unsigned int index){
+		size_t Heap<T>::getParent(size_t index){
 			return (index-1)/2;
 		}
 
